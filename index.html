@@ -37,6 +37,7 @@
 				//create string
 				tr = document.createElement("tr");
 				table.append(tr);
+				
 				//create header
 				for(var thKye in arr[0]){					
 					th = document.createElement("th"); //create tag th
@@ -47,17 +48,14 @@
 				//In each element of the array, the current object is parsed 
 				for (var i= 0; i < arr.length; i++){
 					
-					//create string
-					tr = document.createElement("tr");
-					table.append("tr");
-					for(var k in arr [i]){
-						
+				//create string
+				tr = document.createElement("tr");
+				table.append("tr");
+				for(var k in arr [i]){						
 						td = document.createElement("td"); //create tag td
 						tr.append(td); // input in tr
 						td.append(document.createTextNode(arr[i][k])); // create text with contents = key name and add it to tag tr 
 						}
-
-
 					}
 
 					// add listener on input
@@ -66,13 +64,26 @@
 						var trArr = document.getElementsByTagName("tr");
 						// selected cells - prepared for filtering
 						for(var i = 0; i < trArr.length; i++){
-							console.log(trArr[i]);
+							var showingTrNum;
 							// in every string save array cells
 							var tdArr = trArr[i].getElementsByTagName("td");
 							// search in all cells
 							for (var k = 0; k < tdArr.length; k++){
-								console.log(trArr[k]);
-								// here will be filter
+								// filtering
+								//check the string
+								if(showingTrNum !==i){
+									var tdStr = tdArr[k].innerText;
+									console.log(tdStr.indexOf(searchStr));
+									if(tdStr.indexOf(searchStr) !== -1){
+										showingTrNum = i; //take the string for showing
+										trArr[i].style.display = "table-row";
+									} else {
+										trArr[i].style.display = "none";
+
+									
+									}
+								}
+
 
 							}
 						}
