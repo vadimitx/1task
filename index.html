@@ -4,12 +4,17 @@
 	<meta charset="UTF-8">
 	<title>1task_NDPlay</title>
 	<style>
+		input {
+			width: 100%;
+			margin:20px 0;
+		}
 		table {
 			border-collapse: collapse;
 		}
 		th, td {
 			border: 1px solid #333;
 		}
+
 	</style>
 </head>
 <body>
@@ -54,6 +59,12 @@
 
 
 					}
+
+					// add listener on input
+					input.addEventListener("change", function(e){
+						var searchStr = e.target.value;
+						console.log("Введенная строка для поиска: ", searchStr);
+					})
 
 				
 
