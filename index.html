@@ -17,27 +17,37 @@
 				table = document.createElement("table");
 				document.body.prepend(table);
 
+				var tr, th, td;
+				//create string
+				tr = document.createElement("tr");
+				table.append(tr);
+				//create header
+				for(var thKye in arr[0]){
+					console.log(thKye);
+					th = document.createElement("th"); //create tag th
+					tr.append(th); // input in tr
+					th.append(document.createTextNode(thKye)); // create text with contents = name key and add in th
+				}
+
 				//In each element of the array, the current object is parsed 
 				for (var i= 0; i < arr.length; i++){
 					console.log(arr[i]);
 
 					//create string
-					var tr = document.createElement("tr");
+					tr = document.createElement("tr");
 					table.append("tr");
 					for(var k in arr [i]){
 						console.log(k + " => " + arr[i][k]);
 
-						// create table headers (i == 0)
-						if (i == 0){
-							var th = document.createElement("th"); //create tag th
-							tr.append(th); // input in tr
-							th.append(document.createTextNode(k)); // create text with contents = key name and add it to tag tr 
+						td = document.createElement("td"); //create tag td
+						tr.append(td); // input in tr
+						td.append(document.createTextNode(arr[i][k])); // create text with contents = key name and add it to tag tr 
 						}
 
 
 					}
 
-				}
+				
 
 		</script>
 </body>
