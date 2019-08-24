@@ -63,7 +63,19 @@
 					// add listener on input
 					input.addEventListener("change", function(e){
 						var searchStr = e.target.value;
-						console.log("Введенная строка для поиска: ", searchStr);
+						var trArr = document.getElementsByTagName("tr");
+						// selected cells - prepared for filtering
+						for(var i = 0; i < trArr.length; i++){
+							console.log(trArr[i]);
+							// in every string save array cells
+							var tdArr = trArr[i].getElementsByTagName("td");
+							// search in all cells
+							for (var k = 0; k < tdArr.length; k++){
+								console.log(trArr[k]);
+								// here will be filter
+
+							}
+						}
 					})
 
 				
